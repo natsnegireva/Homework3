@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Spring MVC HomeWork</title>
+</head>
+
+<body>
+<h1>Список продуктов:</h1>
+<table>
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Продукт</td>
+        <td>Стоимость</td>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="s : ${product}">
+        <td th:text="${s.title}"></td>
+        <td th:text="${s.price}"></td>
+        <td><a th:href="@{'/product/edit/' + ${s.id}}" >Редактировать</a></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">на Главную страницу</a>
+</body>
+</html>
